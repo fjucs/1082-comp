@@ -35,34 +35,33 @@ int main()
             type[i] = t == 'B' ? Big : Small;
             pos[i] = p;
         }
+        // 加入頭尾
         type[0] = type[n+1] = Big;
         pos[0] = 0; pos[n+1] = d;
         n += 2;
         // solve
         int ans = INT_MIN;
-        int now[2] = {}; // i-th rock
+        int now[2] = {}; // 存青蛙在第i個石頭
         bool end_flag = false;
         while (!end_flag)
         {
             for(int f = 0; f < 2; f++) // frog
             {
-                int &cur = now[f];
-                int next = cur+1;
+                int &cur = now[f]; // 現在的位置
+                int next = cur+1;  // 跳的位置
                 if(next >= n) // end
                 {
                     end_flag = true;
                     break;
                 }
-                // find next
-                while(!type[next])
-                {
+                // 找到可以跳的 next
+                while(!type[next]) // not None
                     next++;
-                }
-                // update ans
+                // 找距離最大
                 ans = max(ans, pos[next] - pos[cur]);
                 //
                 cur = next;
-                if(type[cur] == Small)
+                if(type[cur] == Small) // 小石頭只能跳一次
                     type[cur] = None;
             }
         }
