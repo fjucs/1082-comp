@@ -37,6 +37,11 @@
         * 用二分答案找最小的 p 滿足條件
     * Use 1-index
 
+> https://www.cnblogs.com/riasky/p/3464915.html
+> https://blog.csdn.net/qq_41289920/article/details/84838131
+> https://blog.csdn.net/shuangde800/article/details/8708371
+> https://www.cnblogs.com/kickit/p/7619889.html
+
 * Week4
   * A Uva 11264
   * B Uva 11549
