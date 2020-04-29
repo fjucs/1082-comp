@@ -43,8 +43,8 @@
 > https://www.cnblogs.com/kickit/p/7619889.html
 
 * Week4
-  * A Uva 11264
-  * B Uva 11549
+  * A Uva 11549
+  * B Uva 11264
 
 * Week5
   * A Uva 410

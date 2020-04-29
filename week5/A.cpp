@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define N 5 
+#define N 5
 #define M 10
 int n, m;
 int num[M+5];
@@ -17,7 +17,7 @@ int main()
 			sum += num[i];
 		//
 		sort(num, num + m);
-		
+
 		int cnt = 0, off = 1;
 		for(int i = m-1; i >= 0; i--)
 		{
