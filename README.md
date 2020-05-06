@@ -57,3 +57,7 @@
 * Week7
   * A Uva 10714
   * B Uva 1362
+
+* Week9
+  * A Uva 10718 Bit Mask
+  * B Uva 1073
