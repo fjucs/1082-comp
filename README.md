@@ -61,3 +61,7 @@
 * Week9
   * A Uva 10718 Bit Mask
   * B Uva 1073
+
+* Week10
+  * A Uva 1623 Enter The Dragon
+  * B Uva
