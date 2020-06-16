@@ -58,14 +58,28 @@
   * A Uva 10714
   * B Uva 1362
 
-* Week9
+---
+
+* Week10
   * A Uva 10718 Bit Mask
   * B Uva 1073
 
-* Week10
-  * A Uva 1623 Enter The Dragon
-  * B Uva
-
 * Week11
+  * A Uva 1623 Enter The Dragon
+  * B Uva 11997
+
+* Week12
   * A Uva 10440
   * B Uva 11383
+
+* Week13
+  * A Uva 10700
+  * B Uva 11865
+
+* Week14
+  * A Uva 10366
+  * B Uva 10236
+
+* Week15
+  * A Uva 11722
+  * B Uva 11542
