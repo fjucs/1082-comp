@@ -95,15 +95,44 @@
 
 * Week13
   * A Uva 10700
+    * 「先加減後乘除」(max)跟「先乘除後加減」(min)
   * B Uva 11865
 
 * Week14
   * A Uva 10366
+    * 倒水 超麻煩
   * B Uva 10236
 
 * Week15
   * A Uva 11722
-    * 麻煩
+    * 碰面的條件：t1 <= x <= t2 且 s1 <= y <= s2
+      * 因為要碰面勢必兩者的差距要在 w 之內，也就是 |x-y| <= w
+      * 得到 x-y >= -w, x-y <= w
+        * i.e. x-y+w >= 0 以及 x-y-w <= 0 = 兩條線穿過長方形的面積
+        * 問題轉換成碰面的機率 = 兩條直線圍起的面積 / 總面積
+    * 簡化問題
+      * 兩條線圍起的面積 = x-y+w=0上面的面積 - x-y-w=0 上面的面積 (排容)
+      * ![](https://i.imgur.com/mGwHzYq.png)
+    * 探討一條線可能交到長方形的哪一邊
+      * 完全沒有（在長方形的上方）
+      * 左邊 + 右邊 (長方形夠高的話)
+        ![](https://i.imgur.com/BSymM49.png)
+      * 左邊 + 上邊
+        ![](https://i.imgur.com/O4H4cQ5.png)
+      * 上邊 + 下邊 （長方形夠寬的話）
+        ![](https://i.imgur.com/5fEcZdD.png)
+      * 右邊 + 下邊
+        ![](https://i.imgur.com/XbrXcaI.png)
+    * 判斷線有無碰到邊？
+      * 上 t1 <= top x <= t2
+      * 左 s1 <= left y <= s2
+      * 下 t1 <= bx <= t2
+      * 右 s1 <= ry <= s2
+      ![](https://i.imgur.com/h0UT97c.png)
+      ![](https://i.imgur.com/9QI8iG3.png)
+
+> 有看到純幾何的做法：https://morris821028.github.io/2014/07/06/oj/uva/uva-11722/
+
   * B Uva 11542
 
 * Week16
