@@ -10,46 +10,64 @@ using PF=pair<float, float>;
 #define S second
 int kase;
 string s;
-char *n;
 //
-struct plussub
+struct Solver
 {
 	stack<LL> num;
 	stack<char> op;
 	const char *n;
-	void calc(string &s)
+	enum State
+	{
+		A, // read int
+		B  // read op
+	}state;
+	void init()
+	{
+		state = A;
+		while(!num.empty()) num.pop();
+		while(!op.empty()) op.pop();
+	}
+	using calcFunc = std::function<LL(LL, LL)>;
+	LL calc(string &s, char fir, char sec, calcFunc firstCalc, calcFunc secondCalc)
 	{
 		n = s.c_str();
 		while(*n)
-		{
-			num.push(readInt());
-			if(*n == '+')
+			switch(state)
 			{
-				n++;
-				printf("%c\n", *n);
-				LL tmp = readInt();
-				printf("%d + %d\n", num.top(), tmp);
-				tmp += num.top();
-				num.pop();
-				num.push(tmp);
-			}
-			else if(*n == '*')
-			{
-				op.push(*n);
-				n++;
-			}
+			case A:
+				num.push(readInt());
+				state = B;
+			break;
+			case B:
+				if(*n == fir)
+				{
+					n++;
+					LL tmp = readInt();
+					tmp = firstCalc(tmp, num.top());
+					num.pop();
+					num.push(tmp);
+					state = B;
+				}
+				else if(*n == sec)
+				{
+					op.push(*n);
+					n++;
+					state = A;
+				}
+			break;
 		}
-		while(!num.empty())
-		{
-			printf("%lld ", num.top());
-			num.pop();
-		}
+		// calc
 		while(!op.empty())
 		{
-			printf("%c ", op.top());
+			LL a = num.top();
+			num.pop();
+			LL b = num.top();
+			num.pop();
+			LL ans = secondCalc(a, b);
+			num.push(ans);
 			op.pop();
 		}
-		puts("-----------------");
+		return num.top();
 	}
 	LL readInt()
 	{
@@ -60,21 +78,28 @@ struct plussub
 			ans += *n - '0';
 			n++;
 		}
-		printf("ans=%lld\n", ans);
 		return ans;
 	}
-}a;
-// struct muldiv
-// {
-// 	stack<LL> num;
-// 	stack<char> op;
-// }b;
+}solver;
 //
+LL add(LL a, LL b)
+{
+	return a+b;
+}
+LL mul(LL a, LL b)
+{
+	return a*b;
+}
 int main()
 {
 	cin >> kase; getchar();
 	while(kase-- && cin >> s)
 	{
-		a.calc(s);
+		solver.init();
+		LL ans = solver.calc(s, '+', '*', add, mul);
+		printf("The maximum and minimum are %lld and ", ans);
+		solver.init();
+		ans = solver.calc(s, '*', '+', mul, add);
+		printf("%lld.\n", ans);
 	}
 }
